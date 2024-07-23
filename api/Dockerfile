@@ -1,4 +1,4 @@
-FROM ruby:3.1.3-bullseye
+FROM ruby:3.1.6-bullseye
 
 # Install Bundler, Rails, and Rake gems
 RUN gem install bundler rails rake
