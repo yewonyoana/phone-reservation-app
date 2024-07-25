@@ -15,7 +15,7 @@ services:
     command: yarn start
     restart: "no"
     env_file: # new
-      - ".env"
+      - "./.env"
     volumes:
       - ./frontend:/app
     ports:
@@ -27,13 +27,16 @@ services:
     command: ["rails", "server"]
     restart: "no"
     env_file: # new
-      - ".env"
+      - "./.env"
     volumes:
       - ./api:/app
+    depends_on:
+      - postgres
+      - redis
   postgres:
     image: postgres:12.11-alpine
     env_file: # new
-      - ".env"
+      - "./.env"
     volumes:
       - postgres-data:/var/lib/postgresql/data:rw
   redis:
